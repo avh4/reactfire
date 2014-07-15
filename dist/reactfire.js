@@ -59,6 +59,7 @@ var ReactFireMixin = {
     this.firebaseRefs[bindVar] = firebaseRef.ref();
     firebaseRef.on("value", function(dataSnapshot) {
       var newState = {};
+      newState[bindVar + "Snap"] = dataSnapshot;
       if (bindAsArray) {
         newState[bindVar] = this._toArray(dataSnapshot.val());
       }
